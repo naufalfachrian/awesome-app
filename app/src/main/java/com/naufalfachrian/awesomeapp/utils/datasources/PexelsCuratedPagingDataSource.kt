@@ -21,6 +21,7 @@ class PexelsCuratedPagingDataSource : RxPagingSource<Int, PexelsPhoto>() {
         return PexelsApiService.instance.fetchCuratedPhotos(pageNumberToLoad, params.loadSize)
             .subscribeOn(Schedulers.io())
             .map<LoadResult<Int, PexelsPhoto>> { response -> LoadResult.Page(response.photos, null, response.page + 1) }
+            .onErrorReturn { error -> LoadResult.Error(error) }
             .singleOrError()
     }
 
