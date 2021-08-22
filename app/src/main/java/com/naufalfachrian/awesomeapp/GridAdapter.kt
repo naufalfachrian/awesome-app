@@ -2,26 +2,22 @@ package com.naufalfachrian.awesomeapp
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.ImageView
+import android.widget.TextView
 import com.naufalfachrian.awesomeapp.databinding.ItemGridBinding
 
-class GridAdapter : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
+class GridAdapter : PexelsPhotoAdapter() {
 
-    class ViewHolder(private val itemView: ItemGridBinding) : RecyclerView.ViewHolder(itemView.root) {
-
+    class ViewHolder(private val itemViewBinding: ItemGridBinding) : PexelsPhotoItemView(itemViewBinding.root) {
+        override val titleTextView: TextView
+            get() = itemViewBinding.textView
+        override val photoImageView: ImageView
+            get() = itemViewBinding.imageView
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PexelsPhotoItemView {
         val binding = ItemGridBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //
-    }
-
-    override fun getItemCount(): Int {
-        return 50
     }
 
 }
