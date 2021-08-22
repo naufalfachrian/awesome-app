@@ -1,5 +1,6 @@
 package com.naufalfachrian.awesomeapp.features.pexels_curated
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -29,7 +30,6 @@ class PexelsCuratedActivity : AppCompatActivity() {
         binding = ActivityPexelsCuratedBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        title = ""
         activateGridMode()
     }
 
