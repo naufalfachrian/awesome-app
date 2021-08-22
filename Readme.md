@@ -1,4 +1,4 @@
-Awesome App!
+# Awesome App!
 
 Welcome to awesome app project! This is an awesome app that let you find random curated photos from Pexels!
 
