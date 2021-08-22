@@ -1,4 +1,4 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.utils.adapter
 
 import android.view.View
 import android.widget.ImageView

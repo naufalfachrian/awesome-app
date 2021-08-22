@@ -1,9 +1,9 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.features.pexels_curated
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import com.naufalfachrian.awesomeapp.utils.datasources.PexelsCuratedPagingDataSource
 import com.naufalfachrian.pexels_api.PexelsApiService
 import com.naufalfachrian.pexels_api.entities.PexelsPhoto
 import kotlinx.coroutines.flow.Flow

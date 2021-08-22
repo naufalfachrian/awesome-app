@@ -1,4 +1,4 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.utils.comparator
 
 import androidx.recyclerview.widget.DiffUtil
 import com.naufalfachrian.pexels_api.entities.PexelsPhoto

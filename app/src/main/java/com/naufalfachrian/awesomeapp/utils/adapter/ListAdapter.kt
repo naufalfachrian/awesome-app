@@ -1,14 +1,14 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.utils.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.naufalfachrian.awesomeapp.databinding.ItemGridBinding
+import com.naufalfachrian.awesomeapp.databinding.ItemListBinding
 
-class GridAdapter : PexelsPhotoAdapter() {
+class ListAdapter : PexelsPhotoAdapter() {
 
-    class ViewHolder(private val itemViewBinding: ItemGridBinding) : PexelsPhotoItemView(itemViewBinding.root) {
+    class ViewHolder(private val itemViewBinding: ItemListBinding) : PexelsPhotoItemView(itemViewBinding.root) {
         override val titleTextView: TextView
             get() = itemViewBinding.textView
         override val photoImageView: ImageView
@@ -16,7 +16,7 @@ class GridAdapter : PexelsPhotoAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PexelsPhotoItemView {
-        val binding = ItemGridBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

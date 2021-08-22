@@ -1,4 +1,4 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.utils.datasources
 
 import androidx.paging.PagingState
 import androidx.paging.rxjava2.RxPagingSource

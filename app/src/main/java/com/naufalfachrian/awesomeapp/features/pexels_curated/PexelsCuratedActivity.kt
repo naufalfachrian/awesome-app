@@ -1,4 +1,4 @@
-package com.naufalfachrian.awesomeapp
+package com.naufalfachrian.awesomeapp.features.pexels_curated
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.naufalfachrian.awesomeapp.*
 import com.naufalfachrian.awesomeapp.databinding.ActivityPexelsCuratedBinding
+import com.naufalfachrian.awesomeapp.utils.adapter.GridAdapter
+import com.naufalfachrian.awesomeapp.utils.adapter.ListAdapter
+import com.naufalfachrian.awesomeapp.utils.adapter.PexelsPhotoAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
