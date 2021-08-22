@@ -3,14 +3,22 @@ package com.naufalfachrian.awesomeapp
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.naufalfachrian.awesomeapp.databinding.ActivityPexelsCuratedBinding
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class PexelsCuratedActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPexelsCuratedBinding
+
+    private val vm: PexelsCuratedViewModel by viewModels()
+
+    lateinit var adapter: PexelsPhotoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +47,25 @@ class PexelsCuratedActivity : AppCompatActivity() {
     }
 
     private fun activateListMode() {
-        binding.recyclerView.adapter = ListAdapter()
+        this.adapter = ListAdapter()
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        loadPexelsPhotos()
     }
 
     private fun activateGridMode() {
-        binding.recyclerView.adapter = GridAdapter()
+        this.adapter = GridAdapter()
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+        loadPexelsPhotos()
+    }
+
+    private fun loadPexelsPhotos() {
+        lifecycleScope.launch {
+            vm.fetchPexelsCuratedPhotos().collectLatest {
+                adapter.submitData(it)
+            }
+        }
     }
 
 }
