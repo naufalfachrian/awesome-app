@@ -1,6 +1,5 @@
 package com.naufalfachrian.awesomeapp.features.pexels_curated
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +13,7 @@ import com.naufalfachrian.awesomeapp.databinding.ActivityPexelsCuratedBinding
 import com.naufalfachrian.awesomeapp.utils.adapter.GridAdapter
 import com.naufalfachrian.awesomeapp.utils.adapter.ListAdapter
 import com.naufalfachrian.awesomeapp.utils.adapter.PexelsPhotoAdapter
+import com.naufalfachrian.awesomeapp.utils.widget_ktx.loadImageFromNetwork
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -25,12 +25,19 @@ class PexelsCuratedActivity : AppCompatActivity() {
 
     lateinit var adapter: PexelsPhotoAdapter
 
+    companion object {
+
+        const val APP_BAR_FEATURED_IMAGE_URL = "https://images.pexels.com/photos/2113566/pexels-photo-2113566.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPexelsCuratedBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         activateGridMode()
+        showFeaturedImage()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,6 +77,10 @@ class PexelsCuratedActivity : AppCompatActivity() {
                 adapter.submitData(it)
             }
         }
+    }
+
+    private fun showFeaturedImage() {
+        binding.featuredImage.loadImageFromNetwork(APP_BAR_FEATURED_IMAGE_URL)
     }
 
 }
