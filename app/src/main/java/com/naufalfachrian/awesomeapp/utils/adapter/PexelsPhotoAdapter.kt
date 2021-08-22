@@ -1,6 +1,7 @@
 package com.naufalfachrian.awesomeapp.utils.adapter
 
 import androidx.paging.PagingDataAdapter
+import com.naufalfachrian.awesomeapp.features.photo_detail.PhotoDetailActivity
 import com.naufalfachrian.awesomeapp.utils.comparator.PexelsPhotosComparator
 import com.naufalfachrian.awesomeapp.utils.widget_ktx.loadImageFromNetwork
 import com.naufalfachrian.pexels_api.entities.PexelsPhoto
@@ -11,6 +12,7 @@ abstract class PexelsPhotoAdapter : PagingDataAdapter<PexelsPhoto, PexelsPhotoIt
         val item = getItem(position)
         holder.titleTextView.text = item!!.photographer
         holder.photoImageView.loadImageFromNetwork(item.source.medium)
+        holder.itemView.setOnClickListener { PhotoDetailActivity.start(holder.itemView.context, item) }
     }
 
 }
